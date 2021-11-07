@@ -1,4 +1,3 @@
-
 name: Trigger
 
 on:
@@ -10,13 +9,11 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Roll dice
         run: echo "DICE=$((RANDOM%2))" >> $GITHUB_ENV
         
       # Runs a set of commands using the runners shell
       - if: env.DICE == '0'
-        name: Powering off
         env:
           offURL: ${{secrets.offURL }}
         run: curl "$env.offURL"
