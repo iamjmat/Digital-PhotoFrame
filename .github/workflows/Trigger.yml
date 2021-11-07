@@ -16,4 +16,4 @@ jobs:
       - if: env.DICE == '0'
         env:
           offURL: ${{secrets.offURL }}
-        run: curl "$env.offURL"
+        run: curl $env.offURL
