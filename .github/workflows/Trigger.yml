@@ -10,6 +10,7 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Roll dice
         run: echo "DICE=$((RANDOM%2))" >> $GITHUB_ENV
         
