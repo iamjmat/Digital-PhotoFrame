@@ -15,5 +15,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - if: env.DICE == '0'
         env:
-          offURL: ${{secrets.offURL }}
-        run: curl $env.offURL
+          OFFURL: ${{secrets.OFFURL }}
+        run: curl $env.OFFURL
+      - if: env.DICE == '1'
+        env:
+          ONURL: ${{secrets.ONURL }}
+        run: curl $env.ONURL
