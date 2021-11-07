@@ -10,15 +10,12 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash 
-      env:
+      - env:
           offURL: ${{secrets.offURL }}
-
-      # Runs a single command using the runners shell
       - name: Roll dice
         run: echo "DICE=$((RANDOM%2))" >> $GITHUB_ENV
         
       # Runs a set of commands using the runners shell
-      if: env.DICE == '0'
-      - name: Switch off 
+      - if: env.DICE == '0'
+        name: Powering off
         run: curl "$env.offURL"
